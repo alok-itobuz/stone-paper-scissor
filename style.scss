@@ -1,5 +1,5 @@
 :root {
-    --hands-bg-color: #BA8865;
+    --hands-bg-color: #ba8865;
 }
 
 * {
@@ -36,19 +36,16 @@ body {
 }
 
 section.container {
-
     .modal-content {
         background: #b9e6f1;
 
         .modal-title {
             color: rgb(27, 29, 23);
         }
-
-        .modal-body {}
     }
 
     .score-board {
-        // pointer-events: none;
+        pointer-events: none;
 
         >div {
             font-size: 1.4rem;
@@ -61,7 +58,7 @@ section.container {
     }
 
     .close-hands-container {
-        // pointer-events: none;
+        pointer-events: none;
 
         >div {
             aspect-ratio: 1/1;
@@ -95,8 +92,6 @@ section.container {
                     }
                 }
             }
-
-
         }
     }
 
@@ -112,7 +107,7 @@ section.container {
         button {
             color: #83b518;
             border: 5px solid rgb(140, 215, 252) !important;
-            transition: all .2s ease;
+            transition: all 0.2s ease;
 
             &:hover {
                 cursor: pointer;
@@ -127,6 +122,5 @@ section.container {
                 border: 3px solid #83b518 !important;
             }
         }
-
     }
 }
