@@ -1,0 +1,132 @@
+:root {
+    --hands-bg-color: #BA8865;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@mixin shake-hand-animation-properties {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@mixin animate-hands {
+    $name: shake-#{unique-id()};
+
+    @keyframes #{$name} {
+        @content;
+    }
+
+    animation-name: $name;
+    @include shake-hand-animation-properties();
+}
+
+section.container {
+
+    .modal-content {
+        background: #b9e6f1;
+
+        .modal-title {
+            color: rgb(27, 29, 23);
+        }
+
+        .modal-body {}
+    }
+
+    .score-board {
+        // pointer-events: none;
+
+        >div {
+            font-size: 1.4rem;
+
+            span {
+                display: block;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .close-hands-container {
+        // pointer-events: none;
+
+        >div {
+            aspect-ratio: 1/1;
+            background-size: cover;
+            font-size: 8rem;
+
+            @media (min-width: 768px) {
+                font-size: 12rem;
+            }
+
+            &.system-side {
+                @include animate-hands() {
+                    0% {
+                        transform: rotateX(180deg) rotateZ(85deg);
+                    }
+
+                    100% {
+                        transform: rotateX(180deg) rotateZ(95deg);
+                    }
+                }
+            }
+
+            &.user-side {
+                @include animate-hands() {
+                    0% {
+                        transform: rotateZ(-95deg);
+                    }
+
+                    100% {
+                        transform: rotateZ(-85deg);
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .btns-container {
+        button {
+            height: 5rem;
+            aspect-ratio: 1/1 !important;
+            font-size: 2rem;
+        }
+    }
+
+    .instruction-btns-container {
+        button {
+            color: #83b518;
+            border: 5px solid rgb(140, 215, 252) !important;
+            transition: all .2s ease;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+                color: rgb(140, 215, 252);
+                border: 5px solid #83b518 !important;
+            }
+
+            &:active {
+                font-weight: bolder;
+                color: rgb(140, 215, 252);
+                border: 3px solid #83b518 !important;
+            }
+        }
+
+    }
+}
